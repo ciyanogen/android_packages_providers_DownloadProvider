@@ -1116,6 +1116,7 @@ public final class DownloadProvider extends ContentProvider {
                 }
 
                 final SQLiteQueryBuilder qb = getQueryBuilder(uri, match);
+                count = qb.update(db, filteredValues, where, whereArgs);
                 if (updateSchedule || isCompleting) {
                     final long token = Binder.clearCallingIdentity();
                     try (Cursor cursor = qb.query(db, null, where, whereArgs, null, null, null)) {

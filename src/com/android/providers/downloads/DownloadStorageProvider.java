@@ -323,6 +323,7 @@ public class DownloadStorageProvider extends DocumentsProvider {
         Cursor cursor = null;
         try {
             cursor = mDm.query(new DownloadManager.Query().setOnlyIncludeVisibleInDownloadsUi(true)
+                    .setFilterByString(query));
             copyNotificationUri(result, cursor);
             while (cursor.moveToNext()) {
                 includeDownloadFromCursor(result, cursor);
